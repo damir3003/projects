@@ -1,0 +1,29 @@
+<collection xmlns="http://exist-db.org/collection-config/1.0">
+    <index xmlns:h17="http://www.mediawiki.org/xml/export-0.9/">
+        <lucene>
+            <analyzer id="stdstops" class="org.apache.lucene.analysis.standard.StandardAnalyzer">
+                <param name="stopwords" type="org.apache.lucene.analysis.util.CharArraySet">
+                    <value>in</value>
+                    <value>of</value>
+                    <value>an</value>
+                    <value>the</value>
+                    <value>a</value>
+                    <value>at</value>
+                    <value>on</value>
+                </param>
+            </analyzer>
+            <text qname="h17:title" boost="3.0" analyzer="stdstops"/>
+            <text qname="h17:revision" analyzer="stdstops">
+                <inline qname="h17:text"/>
+                <ignore qname="h17:id"/>
+                <ignore qname="h17:parentid"/>
+                <ignore qname="h17:timestamp"/>
+                <ignore qname="h17:contributor"/>
+                <ignore qname="h17:comment"/>
+                <ignore qname="h17:sha1"/>
+                <ignore qname="h17:model"/>
+                <ignore qname="h17:format"/>
+            </text>
+        </lucene>
+    </index>
+</collection>
