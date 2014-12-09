@@ -149,6 +149,13 @@
   </dependencies>
 
   <build>
+       
+    <resources>
+        <resource>
+            <directory>src/main/java/com/bravostudio/properties</directory>
+        </resource>
+    </resources>
+
     <plugins>
 
       <!-- The vert.x Maven plugin -->
@@ -174,7 +181,6 @@
           </execution>
         </executions>
       </plugin>
-
       <!-- Other plugins required by the build -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
@@ -183,8 +189,10 @@
         <configuration>
           <source>1.7</source>
           <target>1.7</target>
+         
         </configuration>
       </plugin>
+      
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
         <version>${maven.resources.plugin.version}</version>
